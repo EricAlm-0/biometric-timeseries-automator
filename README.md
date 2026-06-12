@@ -6,7 +6,7 @@ This project was developed independently to identify hidden correlations between
 
 ---
 
-## ⚙️ Key Features
+## Key Features
 
 - **Asynchronous Synchronization:** Resolves server-side sync delays by dynamically fetching rolling 24-hour windows from both APIs, ensuring zero gaps in data accumulation.
 - **Time-Series Alignment:** Re-samples and merges heterogeneous data streams into synchronized, high-resolution 5-minute intervals using `pandas`.
@@ -15,7 +15,7 @@ This project was developed independently to identify hidden correlations between
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## Tech Stack & Architecture
 
 - **Language:** Python 3
 - **Data Engineering:** `pandas` (DataFrames, Outer Merges, Time-Rounding, GroupBy Aggregations), `numpy`
@@ -25,7 +25,7 @@ This project was developed independently to identify hidden correlations between
 
 ---
 
-## 📊 Consolidated Data Schema
+## Consolidated Data Schema
 
 The pipeline merges the data streams into a structured relational CSV format using a synchronized UNIX-derived local timestamp:
 
@@ -41,23 +41,15 @@ The pipeline merges the data streams into a structured relational CSV format usi
 
 ---
 
-## 🚀 Getting Started & Installation
+## Getting Started & Installation
 
 ### 1. Clone the repository
-```bash
-git clone [https://github.com/your-username/garmin-dexcom-sync.git](https://github.com/your-username/garmin-dexcom-sync.git)
-cd garmin-dexcom-sync
-2. Install dependencies
-Bash
 
+2. Install dependencies
 
 pip install pandas garminconnect pydexcom
+
 3. Configure credentials
-Open kombinerad_halsa.py and input your secure API tokens/credentials within the dedicated environment block.
-(Note: Never commit your actual passwords to GitHub. Keep the repository code clear of explicit credentials).
-
-Python
-
 
 # ─── CONFIGURATION BLOCK ─────────────────────────────
 DEXCOM_USER     = "your_dexcom_username"
@@ -67,26 +59,13 @@ DEXCOM_REGION   = "ous"  # 'ous' for Outside US, 'us' for US
 GARMIN_EMAIL    = "your_garmin_email"
 GARMIN_PASSWORD = "your_garmin_password"
 
-OUTPUT_FILE     = "kombinerad_halsa.csv"
+OUTPUT_FILE     = " "
 # ─────────────────────────────────────────────────────
 4. Set up Automated Cron Scheduling
-To configure the script to automatically wake up, extract, clean, and write the dataset every morning at 06:00 AM, initialize the Unix crontab daemon:
+To configure the script to automatically wake up, extract, clean, and write the dataset every morning at 06:00 AM, initialize the Unix crontab daemon.
 
-Bash
-
-
-# Open crontab configuration using the nano text editor
-EDITOR=nano crontab -e
-Paste the following execution string (adjusting the directories to reflect your machine's absolute filepath environment):
-
-Bash
-
-
-0 6 * * * python3 "/absolute/path/to/Garmin x Dexcom/kombinerad_halsa.py"
-Save and exit (Ctrl + O, Enter, Ctrl + X). The terminal should confirm: crontab: installing new crontab.
-
-📈 Engineering Use Cases
-This architecture serves as a robust foundation for downstream statistical analysis and data science deployments:
+Engineering Use Cases
+This architecture serves as a foundation for downstream statistical analysis and data science deployments:
 
 Time-Lag Analysis: Quantifying the exact physiological latency between high-intensity physical steps (steg) and subsequent metabolic glycemic drops (glukos).
 
@@ -94,4 +73,10 @@ Sleep Quality Evaluation: Correlating nocturnal autonomic nervous system metrics
 
 Correlation Matrices: Running predictive correlation sweeps using Python visualization libraries (matplotlib, seaborn) to uncover hidden systemic trends.
 
-Developed as a personal engineering pipeline by a Mechanical Engineering Student at KTH Royal Institute of Technology.
+Developed as a personal engineering pipeline by Eric Alm, Mechanical Engineering Student at KTH Royal Institute of Technology.
+
+## Medical Disclaimer
+
+This project is developed strictly for educational, personal data engineering, and informational purposes. It is **not** intended to be used as a substitute for professional medical advice, diagnosis, or treatment. 
+
+Always seek the advice of your physician or other qualified health providers with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have analyzed or read through this software pipeline.
