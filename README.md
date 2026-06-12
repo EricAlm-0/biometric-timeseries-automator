@@ -51,7 +51,7 @@ pip install pandas garminconnect pydexcom
 
 3. Configure credentials
 
-# ─── CONFIGURATION BLOCK ─────────────────────────────
+# CONFIGURATION BLOCK
 DEXCOM_USER     = "your_dexcom_username"
 DEXCOM_PASS     = "your_dexcom_password"
 DEXCOM_REGION   = "ous"  # 'ous' for Outside US, 'us' for US
@@ -60,7 +60,7 @@ GARMIN_EMAIL    = "your_garmin_email"
 GARMIN_PASSWORD = "your_garmin_password"
 
 OUTPUT_FILE     = " "
-# ─────────────────────────────────────────────────────
+#
 4. Set up Automated Cron Scheduling
 To configure the script to automatically wake up, extract, clean, and write the dataset every morning at 06:00 AM, initialize the Unix crontab daemon.
 
